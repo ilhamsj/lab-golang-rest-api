@@ -1,7 +1,7 @@
 package routes
 
 import (
-	"myapp/controller"
+	"myapp/controllers"
 	"net/http"
 
 	"github.com/gorilla/mux"
@@ -10,6 +10,6 @@ import (
 func Init() {
 	router := mux.NewRouter()
 	http.Handle("/", router)
-	router.HandleFunc("/employee", controller.AllEmployee).Methods("GET")
-	router.HandleFunc("/employee/store", controller.InsertEmployee).Methods("POST")
+	router.HandleFunc("/employee", controllers.EmployeeList).Methods("GET")
+	router.HandleFunc("/employee/store", controllers.EmployeeStore).Methods("POST")
 }
